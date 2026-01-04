@@ -12,6 +12,7 @@ Fullstack application with Kotlin/Spring Boot backend and Angular frontend.
 - Angular v21 with **Signals** (nie Observables/RxJS)
 - Tailwind CSS + DaisyUI
 - Standalone components
+- **Bun** as package manager (not npm)
 
 **Backend (`backend/`):**
 - Kotlin + Spring Boot (latest)
@@ -22,9 +23,9 @@ Fullstack application with Kotlin/Spring Boot backend and Angular frontend.
 **Frontend:**
 ```bash
 cd frontend
-npm start          # dev server on http://localhost:4200
-npm run build      # production build
-npm test           # run tests
+bun start          # dev server on http://localhost:4200
+bun run build      # production build
+bun test           # run tests
 ```
 
 ## Claude Code Configuration

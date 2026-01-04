@@ -9,6 +9,6 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "wsl ./statusline.sh"
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\labcr\\.claude\\statusline.ps1"
   }
 }

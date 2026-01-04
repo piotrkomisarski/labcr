@@ -32,6 +32,15 @@ if ($null -ne $data.context_window.current_usage) {
     }
 }
 
+# Get git branch name
+$git_branch = ""
+try {
+    $branch = git rev-parse --abbrev-ref HEAD 2>$null
+    if ($branch) {
+        $git_branch = "${green}$branch${reset}"
+    }
+} catch {}
+
 # Get git status (modified and new files count)
 $git_status = ""
 try {
@@ -53,6 +62,7 @@ try {
 } catch {}
 
 # Build status line
-$status = "${cyan}${current_dir}${reset} | ${orange}${model_name}${reset} | ${context_pct}%${git_status}"
+$branch_part = if ($git_branch) { " | $git_branch |" } else { "" }
+$status = "${cyan}${current_dir}${reset} | ${orange}${model_name}${reset} | ${context_pct}%${branch_part}${git_status}"
 
 Write-Host $status
