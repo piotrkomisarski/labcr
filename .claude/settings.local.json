@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth login:*)",
+      "Bash(git init:*)",
+      "Bash(git reset:*)",
+      "Bash(git add:*)"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "wsl ./statusline.sh"
+  }
+}
