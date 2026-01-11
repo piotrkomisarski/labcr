@@ -3,7 +3,8 @@ spring:
     name: labcr-backend
   data:
     mongodb:
-      database: labcr
+      host: ${SPRING_DATA_MONGODB_HOST:localhost}
+      database: ${SPRING_DATA_MONGODB_DATABASE:labcr}
 
 server:
   port: 8080
