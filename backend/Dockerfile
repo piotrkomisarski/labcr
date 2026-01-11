@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM eclipse-temurin:25-jdk AS builder
+FROM eclipse-temurin:23-jdk AS builder
 
 WORKDIR /app
 COPY gradle gradle
@@ -9,7 +9,7 @@ COPY src src
 RUN chmod +x gradlew && ./gradlew bootJar --no-daemon
 
 # Stage 2: Run
-FROM eclipse-temurin:25-jre
+FROM eclipse-temurin:23-jre
 
 WORKDIR /app
 
