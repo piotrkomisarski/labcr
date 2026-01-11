@@ -27,5 +27,14 @@ services:
       mongodb:
         condition: service_healthy
 
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WATCHTOWER_CLEANUP: "true"
+      WATCHTOWER_POLL_INTERVAL: 300
+    command: backend
+
 volumes:
   mongodb_data:
