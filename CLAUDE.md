@@ -15,8 +15,10 @@ Fullstack application with Kotlin/Spring Boot backend and Angular frontend.
 - **Bun** as package manager (not npm)
 
 **Backend (`backend/`):**
-- Kotlin + Spring Boot (latest)
-- TBD
+- Kotlin 2.1 + Spring Boot 4.0
+- Spring Data MongoDB
+- Docker Compose integration (auto-starts MongoDB)
+- Java 23 (Kotlin 2.1 max supported)
 
 ## Commands
 
@@ -26,6 +28,14 @@ cd frontend
 bun start          # dev server on http://localhost:4200
 bun run build      # production build
 bun test           # run tests
+```
+
+**Backend:**
+```bash
+cd backend
+./gradlew bootRun  # dev server on http://localhost:8080 (auto-starts MongoDB via Docker)
+./gradlew build    # build
+./gradlew test     # run tests
 ```
 
 ## Claude Code Configuration

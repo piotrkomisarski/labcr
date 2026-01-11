@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: labcr-backend
+  data:
+    mongodb:
+      database: labcr
+
+server:
+  port: 8080
