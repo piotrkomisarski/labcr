@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="LOGTAIL" class="com.logtail.logback.LogtailAppender">
+        <appName>labcr-backend</appName>
+        <sourceToken>${LOGTAIL_TOKEN}</sourceToken>
+        <ingestUrl>${LOGTAIL_URL:-https://in.logs.betterstack.com}</ingestUrl>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="LOGTAIL"/>
+    </root>
+</configuration>

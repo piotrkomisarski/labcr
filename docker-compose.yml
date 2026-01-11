@@ -21,6 +21,8 @@ services:
     environment:
       SPRING_DATA_MONGODB_HOST: mongodb
       SPRING_DATA_MONGODB_DATABASE: labcr
+      LOGTAIL_TOKEN: ${LOGTAIL_TOKEN}
+      LOGTAIL_URL: ${LOGTAIL_URL:-https://in.logs.betterstack.com}
     depends_on:
       mongodb:
         condition: service_healthy
