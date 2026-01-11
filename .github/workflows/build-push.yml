@@ -5,4 +5,25 @@ on:
     branches: [ "main" ]
 
 jobs:
-
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'corretto' # See 'Supported distributions' for available options
+        java-version: '25'
+    - name: Print Maven version
+      run: mvn --version
+    - name: Print Kotlin version
+      run: kotlinc -version
+    - name: Log in to Docker Hub
+      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Make the script files executable
+      run: chmod +x build.sh
+    - name: Run the scripts
+      run: ./build.sh
+      shell: bash
