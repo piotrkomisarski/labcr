@@ -8,12 +8,12 @@ COPY src src
 
 RUN chmod +x gradlew && ./gradlew bootJar --no-daemon
 
-# Stage 2: Run
-FROM eclipse-temurin:23-jre
+# Stage 2: Run (Alpine - smaller, fewer vulnerabilities)
+FROM eclipse-temurin:23-jre-alpine
 
 WORKDIR /app
 
-RUN addgroup --system app && adduser --system --ingroup app app
+RUN addgroup -S app && adduser -S app -G app
 USER app
 
 COPY --from=builder /app/build/libs/*.jar app.jar
