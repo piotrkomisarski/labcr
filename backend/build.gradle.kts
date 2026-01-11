@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.labcr"
-version = "0.0.2"
+version = "0.0.3"
 
 java {
     toolchain {
